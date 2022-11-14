@@ -1,2 +1,2 @@
 Quick Quiz
-Interactive qiuz web app
+Interactive quiz web app
