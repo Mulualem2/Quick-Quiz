@@ -39,3 +39,8 @@
 .MuiFormHelperText-root{
   color:red !important;
 }
+.error {
+  font-size: 12px;
+  color: red !important;
+   margin-top: 0.25rem;
+ }
