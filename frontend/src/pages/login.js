@@ -2,13 +2,14 @@ import React from "react";
 import { Grid, Avatar, TextField, Button, Paper, Typography, Link } from "@mui/material";
 import {FormControlLabel} from "@mui/material";
 import {Checkbox} from "@mui/material";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
 function Login() {
   return (
     <Grid>
       <Paper elevation={10} sx={{ padding :10, height:'50vh',width:280, margin:"20px auto"}}>
         <Grid align='center'>
-              <Avatar style={{backgroundColor:'#1bbd7e'}}></Avatar>
+              <Avatar style={{backgroundColor:'#1bbd7e'}}><LockOutlinedIcon/></Avatar>
               <h2>Sign In</h2>
         </Grid>
         <form action="">
