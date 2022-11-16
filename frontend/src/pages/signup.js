@@ -41,31 +41,31 @@ const onSubmit = (values, props) => {
         {(props) => (
         <Form>
           <Field as={TextField} fullWidth name="fname" label='First Name'
-                                  placeholder="Enter your name" helperText={<div class='error'>
+                                  placeholder="Enter your name" helperText={
                                   <ErrorMessage name="fname" />
-                              </div>} />
+                              } />
           <Field as={TextField} fullWidth name="lname" label='Last Name'
-                                  placeholder="Enter your name" helperText={<div class='error'>
+                                  placeholder="Enter your name" helperText={
                                   <ErrorMessage name="lname" />
-                              </div>} />
+                              } />
           <Field as={TextField} fullWidth name="uname" label='User Name'
-                                  placeholder="Enter your name" helperText={<div class='error'>
+                                  placeholder="Enter your name" helperText={
                                   <ErrorMessage name="uname" />
-                              </div>} />
+                              } />
           <Field as={TextField} fullWidth name="email" label='Email'
-                                placeholder="Enter your email" helperText={<div class='error'>
+                                placeholder="Enter your email" helperText={
                                 <ErrorMessage name="email" />
-                            </div>} />
+                            } />
           <Field as={TextField} fullWidth name='password' type="password"
                                 label='Password' placeholder="Enter your password"
-                                helperText={<div class='error'>
+                                helperText={
                                 <ErrorMessage name="password" />
-                            </div>} />
+                            } />
                             <Field as={TextField} fullWidth name="confirmPassword" type="password"
                                 label='Confirm Password' placeholder="Confirm your password"
-                                helperText={<div class='error'>
+                                helperText={
                                 <ErrorMessage name="confirmPassword" />
-                            </div>} />
+                            } />
           <Button type='submit' variant='contained' disabled={props.isSubmitting}
                                 color='primary'>{props.isSubmitting ? "Loading" : "Sign up"}</Button>
           <Typography > Already have an account ?
