@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Avatar, TextField, Button, Paper, Typography, Link } from "@mui/material";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import { FormHelperText } from "@mui/material";
+//import { FormHelperText } from "@mui/material";
 import * as Yup from 'yup'
 const SignUp = () => {
   const initialValues = {
@@ -41,19 +41,31 @@ const onSubmit = (values, props) => {
         {(props) => (
         <Form>
           <Field as={TextField} fullWidth name="fname" label='First Name'
-                                  placeholder="Enter your name" helperText={<ErrorMessage name="fname" />} />
+                                  placeholder="Enter your name" helperText={
+                                  <ErrorMessage name="fname" />
+                              } />
           <Field as={TextField} fullWidth name="lname" label='Last Name'
-                                  placeholder="Enter your name" helperText={<ErrorMessage name="lname" />} />
+                                  placeholder="Enter your name" helperText={
+                                  <ErrorMessage name="lname" />
+                              } />
           <Field as={TextField} fullWidth name="uname" label='User Name'
-                                  placeholder="Enter your name" helperText={<ErrorMessage name="uname" />} />
+                                  placeholder="Enter your name" helperText={
+                                  <ErrorMessage name="uname" />
+                              } />
           <Field as={TextField} fullWidth name="email" label='Email'
-                                placeholder="Enter your email" helperText={<ErrorMessage name="email" />} />
+                                placeholder="Enter your email" helperText={
+                                <ErrorMessage name="email" />
+                            } />
           <Field as={TextField} fullWidth name='password' type="password"
                                 label='Password' placeholder="Enter your password"
-                                helperText={<ErrorMessage name="password" />} />
+                                helperText={
+                                <ErrorMessage name="password" />
+                            } />
                             <Field as={TextField} fullWidth name="confirmPassword" type="password"
                                 label='Confirm Password' placeholder="Confirm your password"
-                                helperText={<ErrorMessage name="confirmPassword" />} />
+                                helperText={
+                                <ErrorMessage name="confirmPassword" />
+                            } />
           <Button type='submit' variant='contained' disabled={props.isSubmitting}
                                 color='primary'>{props.isSubmitting ? "Loading" : "Sign up"}</Button>
           <Typography > Already have an account ?

@@ -3,8 +3,29 @@ import { Grid, Avatar, TextField, Button, Paper, Typography, Link } from "@mui/m
 import {FormControlLabel} from "@mui/material";
 import {Checkbox} from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+import * as Yup from 'yup'
+import Change from './Change'
 
-function Login() {
+const Login = ({ handleChange }) => {
+  const initialValues = {
+    username: '',
+    password: '',
+    remember: false
+}
+const validationSchema = Yup.object().shape({
+    username: Yup.string().email('please enter valid email or username').required("Required"),
+    username: Yup.string().required("Required"),
+    password: Yup.string().required("Required")
+})
+const onSubmit = (values, props) => {
+    console.log(values)
+    setTimeout(() => {
+        props.resetForm()
+        props.setSubmitting(false)
+    }, 2000)
+
+}
   return (
     <Grid>
       <Paper elevation={10} sx={{ padding :10, height:'50vh',width:280, margin:"20px auto"}}>
@@ -12,44 +33,43 @@ function Login() {
               <Avatar style={{backgroundColor:'#1bbd7e'}}><LockOutlinedIcon/></Avatar>
               <h2>Sign In</h2>
         </Grid>
-        <form action="">
-          <TextField
-            id = "outlined-basic"
-            label = "Username"
-            variant = "outlined"
-            required
-            fullWidth
-          /> <br></br>
-          <TextField
-            id = "outlined-basic"
-            label = "Password"
-            variant = "outlined"
-            type = "password"
-            required
-            fullWidth
-            style= {{margin:'8px 0'}}
-          />
-          <FormControlLabel
-                    control={
-                    <Checkbox
-                        name="checkedB"
-                        color="primary"
-                    />
-                    }
-                    label="Remember me"
-                 />
-          <Button variant="contained" color="primary" fullWidth style= {{margin:'8px 0'}}>Login</Button>
+        <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
+        {(props) => (
+                        <Form>
+          <Field as={TextField} label='Username' name="username"
+                                placeholder='Enter username' fullWidth required
+                                helperText={<ErrorMessage name="username" component = {Change}/>}
+                            /> <br></br>
+          <Field as={TextField} label='Password' name="password"
+                                placeholder='Enter password' type='password' fullWidth required
+                                helperText={<ErrorMessage name="password" >
+                                  {errorMsg => <div className = "error">{errorMsg}</div>}
+                                </ErrorMessage>}  />
+          <Field as={FormControlLabel}
+                                name='checkedB'
+                                control={
+                                    <Checkbox
+                                        color="primary"
+                                    />
+                                }
+                                label="Remember me"
+                            />
+          <Button type='submit' color='primary' variant="contained" disabled={props.isSubmitting}
+                                style={ {margin: '8px 0'} } fullWidth>{props.isSubmitting ? "Loading" : "Sign in"}</Button>
+          </Form>
+                    )}
+          </Formik>
           <Typography>
                <Link href="#" >
                   Forgot password ?
                </Link>
           </Typography>
           <Typography > Do you have an account ?
-                <Link href="#" >
-                  Sign Up 
+          <Link href="#" onClick={() => handleChange("event", 1)} >
+                        Sign Up
                 </Link>
                 </Typography>
-        </form>
+        
       </Paper>
     </Grid>
   );
