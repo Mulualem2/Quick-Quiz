@@ -3,12 +3,6 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const questionPackSchema = new Schema({
-    username: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true,
-    },
     pack_name: {
         type: String,
         required: true,
