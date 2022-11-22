@@ -5,26 +5,23 @@ import {Checkbox} from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
+import api from '../api/api'
 //import Change from './Change'
 
 const Login = ({ handleChange }) => {
   const initialValues = {
-    username: '',
+    email: '',
     password: '',
     remember: false
 }
 const validationSchema = Yup.object().shape({
-    username: Yup.string().email('please enter valid email or username').required("Required"),
-    username: Yup.string().required("Required"),
+    email: Yup.string().email('please enter valid email or username').required("Required"),
+    //uname: Yup.string().required("Required"),
     password: Yup.string().required("Required")
 })
-const onSubmit = (values, props) => {
+const onSubmit = values => {
     console.log(values)
-    setTimeout(() => {
-        props.resetForm()
-        props.setSubmitting(false)
-    }, 2000)
-
+    api.post('/login',values)
 }
   return (
     <Grid>
@@ -33,12 +30,13 @@ const onSubmit = (values, props) => {
               <Avatar style={{backgroundColor:'#1bbd7e'}}><LockOutlinedIcon/></Avatar>
               <h2>Sign In</h2>
         </Grid>
-        <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-        {(props) => (
-                        <Form>
-          <Field as={TextField} label='Username' name="username"
+        <Formik initialValues={initialValues} onSubmit={(event) => onSubmit(event) } validationSchema={validationSchema}>
+        {Formik =>{
+
+              return <Form>
+          <Field as={TextField} label='Username' name="email"
                                 placeholder='Enter username' fullWidth required
-                                helperText={<ErrorMessage name="username"/>}
+                                helperText={<ErrorMessage name="email"/>}
                             /> <br></br>
           <Field as={TextField} label='Password' name="password"
                                 placeholder='Enter password' type='password' fullWidth required
@@ -54,10 +52,10 @@ const onSubmit = (values, props) => {
                                 }
                                 label="Remember me"
                             />
-          <Button type='submit' color='primary' variant="contained" disabled={props.isSubmitting}
-                                style={ {margin: '8px 0'} } fullWidth>{props.isSubmitting ? "Loading" : "Sign in"}</Button>
+          <Button type='submit' color='primary' variant="contained" disabled={!Formik.isValid}
+                                style={ {margin: '8px 0'} } fullWidth>Sign In</Button>
           </Form>
-                    )}
+                    }}
           </Formik>
           <Typography>
                <Link href="#" >

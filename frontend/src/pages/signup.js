@@ -45,6 +45,7 @@ const validationSchema = yup.object({
 const onSubmit = values => {
     console.log('Form data',values)
     api.post('/signup',values)
+    // .then((res) => res.json())
 }
   return (
     <Grid>
@@ -86,7 +87,7 @@ const onSubmit = values => {
           <Button type='submit' variant='contained' disabled={!Formik.isValid}
                                 color='primary'>Sign up</Button>
           <Typography > Already have an account ?
-                <Link href="#" >
+                <Link href="/login" >
                   Sign In 
                 </Link>
                 </Typography>
