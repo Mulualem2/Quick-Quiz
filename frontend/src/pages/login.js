@@ -21,7 +21,15 @@ const validationSchema = Yup.object().shape({
 })
 const onSubmit = values => {
     console.log(values)
-    api.post('/login',values)
+    api.post("/login", values).then(
+      (response) => {
+          var result = response.data;
+          console.log(result);
+      },
+      (error) => {
+          console.log(error);
+      }
+  );
 }
   return (
     <Grid>
