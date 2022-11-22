@@ -5,7 +5,7 @@ import {Checkbox} from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
-import Change from './Change'
+//import Change from './Change'
 
 const Login = ({ handleChange }) => {
   const initialValues = {
@@ -38,7 +38,7 @@ const onSubmit = (values, props) => {
                         <Form>
           <Field as={TextField} label='Username' name="username"
                                 placeholder='Enter username' fullWidth required
-                                helperText={<ErrorMessage name="username" component = {Change}/>}
+                                helperText={<ErrorMessage name="username"/>}
                             /> <br></br>
           <Field as={TextField} label='Password' name="password"
                                 placeholder='Enter password' type='password' fullWidth required
@@ -65,7 +65,7 @@ const onSubmit = (values, props) => {
                </Link>
           </Typography>
           <Typography > Do you have an account ?
-          <Link href="#" onClick={() => handleChange("event", 1)} >
+          <Link href="/signup" onClick={() => handleChange("event", 1)} >
                         Sign Up
                 </Link>
                 </Typography>
