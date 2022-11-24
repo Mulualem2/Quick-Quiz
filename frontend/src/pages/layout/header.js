@@ -19,6 +19,7 @@ const pages = [
   { name: "Home", url: "/" },
   { name: "Login", url: "/login" },
   { name: "Sign Up", url: "/signup" },
+  { name: "Take A Quiz", url: '/quiz' }
 ];
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
