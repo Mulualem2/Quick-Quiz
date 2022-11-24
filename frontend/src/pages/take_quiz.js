@@ -117,8 +117,8 @@ function TakeQuiz() {
                                         display: "inline-block",
                                     }}
                                 >
-                                    Q {i + 1}/10{" "}
-                                    <span style={{ marginLeft: "10px", fontSize: "14px" }}>
+                                    Q {i + 1}/{questions.length}
+                                    <span style={{ marginLeft: "10px", fontSize: "14px", fontWeight: 'bold' }}>
                                         {question.category}
                                     </span>
                                 </span>
