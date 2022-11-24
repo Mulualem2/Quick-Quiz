@@ -1,4 +1,4 @@
-import { red, purple, yellow } from "@mui/material/colors";
+import { purple } from "@mui/material/colors";
 
 const customTheme = {
     palette: {

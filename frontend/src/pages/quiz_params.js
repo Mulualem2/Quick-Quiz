@@ -1,11 +1,8 @@
 import { Button, Slider } from "@mui/material";
 import React, { useEffect } from "react";
-import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
@@ -13,7 +10,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
-import { Navigate, Redirect, Route, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 
 import axiosTrivia from "../api/triviaApi";
@@ -31,10 +28,8 @@ const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 
 function QuizParams() {
-  const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   const [quizCategories, setQuizCategories] = React.useState([]);
   const [quizCategoriesWithValue, setQuizCategoriesWithValue] = React.useState(
     []
@@ -79,7 +74,7 @@ function QuizParams() {
   const createQuizApiLink = (params) => {
     // baseURL/api/questions?categories=arts_and_literature,film_and_tv,geography&limit=9
     var link = "https://the-trivia-api.com/api/questions?";
-    if (params.categories.length != 0) {
+    if (params.categories.length !== 0) {
       link += "categories=";
       params.categories.forEach((category) => {
         quizCategoriesWithValue[category].forEach((c) => {
