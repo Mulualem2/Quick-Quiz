@@ -44,13 +44,15 @@ const onSubmit = values => {
               return <Form>
           <Field as={TextField} label='Username' name="email"
                                 placeholder='Enter username' fullWidth required
-                                helperText={<ErrorMessage name="email"/>}
-                            /> <br></br>
+                                helperText={<ErrorMessage name="email">
+                                { msg => <div style={{ color: 'red' }}>{msg}</div> }
+                            </ErrorMessage>}
+                                /> <br></br>
           <Field as={TextField} label='Password' name="password"
                                 placeholder='Enter password' type='password' fullWidth required
-                                helperText={<ErrorMessage name="password" >
-                                  {errorMsg => <div className = "error">{errorMsg}</div>}
-                                </ErrorMessage>}  />
+                                helperText={<ErrorMessage name="password">
+                                { msg => <div style={{ color: 'red' }}>{msg}</div> }
+                            </ErrorMessage>}  />
           <Field as={FormControlLabel}
                                 name='checkedB'
                                 control={

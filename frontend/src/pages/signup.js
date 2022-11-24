@@ -67,29 +67,41 @@ const onSubmit = values => {
        return <Form>
           <Field as={TextField} fullWidth name="fname" label='First Name'
                                   placeholder="Enter your name" helperText={
-                                  <ErrorMessage name="fname" />
+                                    <ErrorMessage name="fname">
+                                    { msg => <div style={{ color: 'red' }}>{msg}</div> }
+                                </ErrorMessage>
                               } />
           <Field as={TextField} fullWidth name="lname" label='Last Name'
                                   placeholder="Enter your name" helperText={
-                                  <ErrorMessage name="lname" />
+                                    <ErrorMessage name="lname">
+                                    { msg => <div style={{ color: 'red' }}>{msg}</div> }
+                                </ErrorMessage>
                               } />
           <Field as={TextField} fullWidth name="uname" label='User Name'
                                   placeholder="Enter your name" helperText={
-                                  <ErrorMessage name="uname" />
+                                    <ErrorMessage name="uname">
+                                    { msg => <div style={{ color: 'red' }}>{msg}</div> }
+                                </ErrorMessage>
                               } />
           <Field as={TextField} fullWidth name="email" label='Email'
                                 placeholder="Enter your email" helperText={
-                                <ErrorMessage name="email" />
+                                  <ErrorMessage name="email">
+                                  { msg => <div style={{ color: 'red' }}>{msg}</div> }
+                              </ErrorMessage>
                             } />
           <Field as={TextField} fullWidth name='password' type="password"
                                 label='Password' placeholder="Enter your password"
                                 helperText={
-                                <ErrorMessage name="password" />
+                                  <ErrorMessage name="password">
+                                  { msg => <div style={{ color: 'red' }}>{msg}</div> }
+                              </ErrorMessage>
                             } />
                             <Field as={TextField} fullWidth name="confirmPassword" type="password"
                                 label='Confirm Password' placeholder="Confirm your password"
                                 helperText={
-                                <ErrorMessage name="confirmPassword" />
+                                  <ErrorMessage name="confirmPassword">
+                                  { msg => <div style={{ color: 'red' }}>{msg}</div> }
+                              </ErrorMessage>
                             } />
           <Button type='submit' variant='contained' disabled={!Formik.isValid}
                                 color='primary'>Sign up</Button>
