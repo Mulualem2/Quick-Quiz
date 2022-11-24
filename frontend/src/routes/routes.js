@@ -4,6 +4,7 @@ import Login from "../pages/login"
 import SignUp from "../pages/signup"
 import QuizParams from "../pages/quiz_params"
 import TakeQuiz from "../pages/take_quiz"
+import QuizScore from "../pages/quiz_score"
 
 const Routes = [
     {
@@ -25,6 +26,10 @@ const Routes = [
     {
         path: '/quiz/take',
         element: <TakeQuiz />
+    },
+    {
+        path: '/quiz/score',
+        element: <QuizScore />,
     }
 ]
 

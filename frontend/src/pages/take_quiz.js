@@ -1,11 +1,10 @@
 import { Alert, Box, Button, Snackbar } from "@mui/material";
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import triviaApi from "../api/triviaApi";
 
 const scrambleAnswers = ({ correctAnswer, incorrectAnswers }) => {
@@ -13,7 +12,7 @@ const scrambleAnswers = ({ correctAnswer, incorrectAnswers }) => {
     let currentIndex = possibleAnswers.length, randomIndex;
 
     // While there remain elements to shuffle.
-    while (currentIndex != 0) {
+    while (currentIndex !== 0) {
         // Pick a remaining element.
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
@@ -26,11 +25,11 @@ const scrambleAnswers = ({ correctAnswer, incorrectAnswers }) => {
 };
 
 function TakeQuiz() {
-    const [value, setValue] = React.useState("female");
-    const [questions, setQuestions] = React.useState([]);
-    const [possibleAnswers, setPossibleAnswers] = React.useState([])
-    const [givenAnswers, setGivenAnswers] = React.useState({})
-    const [snackbarOpen, setSnackbarOpen] = React.useState(false)
+    const [questions, setQuestions] = useState([]);
+    const [possibleAnswers, setPossibleAnswers] = useState([])
+    const [givenAnswers, setGivenAnswers] = useState({})
+    const [snackbarOpen, setSnackbarOpen] = useState(false)
+    const navigate = useNavigate();
     const { state } = useLocation();
 
     useEffect(() => {
@@ -38,6 +37,7 @@ function TakeQuiz() {
             .get(state)
             .then((res) => {
                 setQuestions(res.data)
+                console.log('questions: ', res.data)
                 res.data.forEach(question => setPossibleAnswers(prev => [...prev, scrambleAnswers(question)]))
             })
             .catch((err) => console.log("err: ", err));
@@ -55,19 +55,27 @@ function TakeQuiz() {
     };
 
     const handleAnswerChange = (event) => {
-        const questionNo = event.target.name
+        const questionId = event.target.name
         const givenAnswer = event.target.value
         console.log("radio: ", event.target.name, " & ", event.target.value);
         setGivenAnswers(prev => {
-            return { ...prev, [questionNo]: givenAnswer }
+            return { ...prev, [questionId]: givenAnswer }
         })
-        setValue(event.target.value);
     };
 
     const handleSubmitQuiz = () => {
         const totalQuestions = questions.length
         if (Object.keys(givenAnswers).length < totalQuestions) {
             handleOpenSnackbar()
+        }
+        else {
+            // CALCULATE THE SCORE
+            let score = 0
+            questions.forEach(question => {
+                if (question.correctAnswer === givenAnswers[question.id])
+                    score++
+            })
+            navigate('/quiz/score', { state: { score: score, total: totalQuestions } })
         }
     }
 
@@ -120,7 +128,7 @@ function TakeQuiz() {
                                 <FormControl sx={{ marginLeft: 1 }}>
                                     <RadioGroup
                                         aria-labelledby="demo-controlled-radio-buttons-group"
-                                        name={(i + 1).toString()}
+                                        name={question.id}
                                         onChange={handleAnswerChange}
                                     >
                                         {possibleAnswers[i].map((ans, i) => {
