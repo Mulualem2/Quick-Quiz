@@ -6,6 +6,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
 import Header from "./pages/layout/header";
+import Footer from "./components/Footer";
 
 import Routes from "./routes/routes";
 import customTheme from "./theme/theme";
@@ -20,6 +21,7 @@ root.render(
     <ThemeProvider theme={theme}>
       <Header />
       <RouterProvider router={router} />
+      <Footer />
     </ThemeProvider>
   // </React.StrictMode>
 );

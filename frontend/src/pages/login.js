@@ -6,6 +6,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import api from '../api/api'
+import { useNavigate } from "react-router-dom";
 //import Change from './Change'
 
 const Login = ({ handleChange }) => {
@@ -19,12 +20,14 @@ const validationSchema = Yup.object().shape({
     //uname: Yup.string().required("Required"),
     password: Yup.string().required("Required")
 })
+const navigate= useNavigate();
 const onSubmit = values => {
     console.log(values)
     api.post("/login", values).then(
       (response) => {
           var result = response.data;
           console.log(result);
+          navigate('./homepage')
       },
       (error) => {
           console.log(error);

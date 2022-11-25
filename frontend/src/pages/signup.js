@@ -4,6 +4,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 //import { FormHelperText } from "@mui/material";
 import * as yup from 'yup'
 import api from '../api/api'
+import { useNavigate } from "react-router-dom";
 const SignUp = () => {
   const initialValues = {
     fname: '',
@@ -42,12 +43,14 @@ const validationSchema = yup.object({
         .oneOf([yup.ref("password")], "Password does not match"),
     }),
 });
+const navigate= useNavigate();
 const onSubmit = values => {
     console.log('Form data',values)
     api.post("/signup", values).then(
       (response) => {
           var result = response.data;
           console.log(result);
+          navigate('./login')
       },
       (error) => {
           console.log(error);
