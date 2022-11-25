@@ -11,7 +11,7 @@ export default function Media_Card() {
       <CardMedia
         component="img"
         height="140"
-        image="../images/back.jpg"
+        image="../images/back_ground.jpg"
         objectFit = "cover"
         width = "100%"
         alt="Quiz"

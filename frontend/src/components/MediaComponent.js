@@ -12,7 +12,7 @@ export default function MediaComponent() {
       <CardMedia
         component="img"
         height="140"
-        image="../images/back.jpg"
+        image="../images/back_ground.jpg"
         alt="Quiz"
       />
       <CardContent>
