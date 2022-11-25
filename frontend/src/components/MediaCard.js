@@ -6,13 +6,16 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+// IMPORT IMAGES
+import back_ground from '../images/back_ground.jpg'
+
 export default function MediaCard() {
   return (
-    <Card sx={{ maxWidth: 345 , margin: 5}}>
+    <Card sx={{ maxWidth: 345, margin: 5 }}>
       <CardMedia
         component="img"
         height="140"
-        image="../images/back_ground.jpg"
+        image={back_ground}
         alt="Quiz"
       />
       <CardContent>

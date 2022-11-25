@@ -6,13 +6,16 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+// IMPORT IMAGES
+import back_ground from '../images/back_ground.jpg'
+
 export default function MediaComponent() {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
         height="140"
-        image="../images/back_ground.jpg"
+        image={back_ground}
         alt="Quiz"
       />
       <CardContent>
@@ -20,8 +23,8 @@ export default function MediaComponent() {
           Create your own quiz pack
         </Typography>
         <Typography variant="body2" color="text.secondary">
-        Create your own quiz pack, with your own questions on your own
-        category & description 
+          Create your own quiz pack, with your own questions on your own
+          category & description
         </Typography>
       </CardContent>
       <CardActions>

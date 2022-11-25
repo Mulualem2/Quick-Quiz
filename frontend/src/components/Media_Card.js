@@ -5,15 +5,19 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+
+// IMPORT IMAGES
+import back_ground from '../images/back_ground.jpg'
+
 export default function Media_Card() {
   return (
-    <Card sx={{ maxWidth: 345 , margin: 5 }}>
+    <Card sx={{ maxWidth: 345, margin: 5 }}>
       <CardMedia
         component="img"
         height="140"
-        image="../images/back_ground.jpg"
-        objectFit = "cover"
-        width = "100%"
+        image={back_ground}
+        objectFit="cover"
+        width="100%"
         alt="Quiz"
       />
       <CardContent>
@@ -21,7 +25,7 @@ export default function Media_Card() {
           Try others' quiz pack
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Try other users' created quiz packs and give your rating 
+          Try other users' created quiz packs and give your rating
           on their quiz pack
         </Typography>
       </CardContent>
