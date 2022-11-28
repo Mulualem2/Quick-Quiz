@@ -106,10 +106,11 @@ function QuizParams() {
     >
       <Box
         sx={{
-          marginTop: 15,
+          marginY: 15,
           border: "1px solid gray",
           padding: "25px",
           borderRadius: "15px",
+          backgroundColor: 'white'
         }}
       >
         <h2 style={{ marginBottom: "10px", textAlign: "center" }}>

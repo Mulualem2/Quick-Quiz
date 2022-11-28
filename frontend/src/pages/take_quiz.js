@@ -94,7 +94,8 @@ function TakeQuiz() {
                     margin: "auto",
                     paddingX: "30px",
                     maxWidth: '65%',
-                    marginTop: 4,
+                    marginY: 4,
+                    backgroundColor: 'white'
                 }}
             >
                 {/* SINGLE QUESTION START */}
