@@ -27,7 +27,7 @@ const onSubmit = values => {
       (response) => {
           var result = response.data;
           console.log(result);
-          navigate('./homepage')
+          navigate('/login/homepage')
       },
       (error) => {
           console.log(error);

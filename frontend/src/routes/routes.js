@@ -30,6 +30,14 @@ const Routes = [
     {
         path: '/quiz/score',
         element: <QuizScore />,
+    },
+    {
+        path: '/login/homepage',
+        element: <Homepage />,
+    },
+    {
+        path: 'signup/login',
+        element: <Login />,
     }
 ]
 

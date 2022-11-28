@@ -50,7 +50,7 @@ const onSubmit = values => {
       (response) => {
           var result = response.data;
           console.log(result);
-          navigate('./login')
+          navigate('/signup/login')
       },
       (error) => {
           console.log(error);
