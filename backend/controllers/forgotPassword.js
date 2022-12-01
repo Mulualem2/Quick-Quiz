@@ -1,3 +1,4 @@
+require('dotenv').config()
 const User = require('../models/user.model')
 const jwt = require("jsonwebtoken");
 const JWT_sec = "asfnjkdshf24879834583;'.f093498567*^67343@##@skdfjidsfaishcuhfksnksjfheygfusgfgfeufdsjf1654";
@@ -19,8 +20,8 @@ exports.forgotPassword = async (req, res) => {
         port: 465,
         service: "gmail",
         auth: {
-          user: "quikquiz1@gmail.com",
-          pass: "tffnspxqhzhzjppp",
+          user: process.env.USER,
+          pass: process.env.PASS,
         },
         secure: true
       });
