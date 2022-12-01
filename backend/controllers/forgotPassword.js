@@ -28,7 +28,7 @@ exports.forgotPassword = async (req, res) => {
   
       var mailOptions = {
         from: "QuickQuiz1@gmail.com",
-        to: "mulualemasfaw2321@gmail.com",
+        to: oldUser.email,
         subject: "Password Reset",
         text: link,
       };
