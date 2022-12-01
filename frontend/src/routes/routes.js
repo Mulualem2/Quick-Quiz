@@ -5,6 +5,7 @@ import SignUp from "../pages/signup"
 import QuizParams from "../pages/quiz_params"
 import TakeQuiz from "../pages/take_quiz"
 import QuizScore from "../pages/quiz_score"
+import ForgotPassword from "../pages/forgotPassword"
 
 const Routes = [
     {
@@ -38,6 +39,10 @@ const Routes = [
     {
         path: 'signup/login',
         element: <Login />,
+    },
+    {
+        path: '/forgotPassword',
+        element: <ForgotPassword />,
     }
 ]
 

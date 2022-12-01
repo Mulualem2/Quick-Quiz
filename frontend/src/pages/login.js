@@ -71,11 +71,11 @@ const onSubmit = values => {
                     }}
           </Formik>
           <Typography>
-               <Link href="#" >
+               <Link href="./forgotPassword" >
                   Forgot password ?
                </Link>
           </Typography>
-          <Typography > Do you have an account ?
+          <Typography > Don't you have an account ?
           <Link href="/signup" onClick={() => handleChange("event", 1)} >
                         Sign Up
                 </Link>

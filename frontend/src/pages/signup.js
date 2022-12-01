@@ -122,4 +122,4 @@ const onSubmit = values => {
   )
 }
 
-export default SignUp
+export default SignUp;
