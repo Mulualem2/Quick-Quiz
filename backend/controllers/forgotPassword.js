@@ -1,7 +1,6 @@
 require('dotenv').config()
 const User = require('../models/user.model')
 const jwt = require("jsonwebtoken");
-const JWT_sec = "asfnjkdshf24879834583;'.f093498567*^67343@##@skdfjidsfaishcuhfksnksjfheygfusgfgfeufdsjf1654";
 var nodemailer = require("nodemailer");
 exports.forgotPassword = async (req, res) => {
     const { email } = req.body;
@@ -10,7 +9,7 @@ exports.forgotPassword = async (req, res) => {
     if (!oldUser) {
       return res.json({ status: "User Not Exists!!" });
     }
-    const secret = JWT_sec + oldUser.password;
+    const secret = process.env.JWT_sec + oldUser.password;
     const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, {
       expiresIn: "5m",
     });
