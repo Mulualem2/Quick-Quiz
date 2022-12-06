@@ -36,7 +36,7 @@ const onSubmit = values => {
 }
   return (
     <Grid>
-      <Paper elevation={10} sx={{ padding :10, height:'50vh',width:280, margin:"20px auto"}}>
+      <Paper elevation={10} sx={{ padding :10, height:'70vh',width:425, margin:"20px auto"}}>
         <Grid align='center'>
               <Avatar style={{backgroundColor:'#1bbd7e'}}><LockOutlinedIcon/></Avatar>
               <h2>Sign In</h2>

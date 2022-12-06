@@ -59,7 +59,7 @@ const onSubmit = values => {
 }
   return (
     <Grid>
-      <Paper elevation={10} sx={{ padding :20, height:'60vh',width:280, margin:"20px auto"}}>
+      <Paper elevation={10} sx={{ padding :20, height:'100vh',width:650, margin:"20px auto"}}>
         <Grid align='center'>
               <Avatar style={{backgroundColor:'#1bbd7e'}}></Avatar>
               <h2 style = {{margin: 0}}>Sign Up</h2>

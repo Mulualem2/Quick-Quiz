@@ -27,7 +27,7 @@ const validationSchema = Yup.object().shape({
 
 return(
     <Grid>
-        <Paper elevation={10} sx={{ padding :10, height:'25vh',width:280, margin:"20px auto"}}>
+        <Paper elevation={10} sx={{ padding :10, height:'45vh',width:425, margin:"20px auto"}}>
         <Grid align='center'>
               <Avatar style={{backgroundColor:'#1bbd7e'}}><LockOutlinedIcon/></Avatar>
               <h2>Forgot Password</h2>
