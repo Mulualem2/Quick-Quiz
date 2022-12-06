@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import QuizIcon from '@mui/icons-material/Quiz';
+import styled from '@emotion/styled'
 
 const headerTitle = 'Quick Quiz'
 
@@ -44,9 +45,9 @@ function Header() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{backgroundColor: 'rgba(0, 0, 0, 0)', boxShadow: "none"}}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
+        <Toolbar disableGutters sx={{paddingX: '180px'}}>
           <QuizIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
@@ -121,14 +122,14 @@ function Header() {
           >
             {headerTitle}
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, justifyContent: 'end', marginRight: 10 }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, justifyContent: 'end', marginRight: 10, zIndex: 100 }}>
             {pages.map((page) => {
               return (
                 <a style={{ textDecoration: "none" }} href={page.url}>
                   <Button
                     key={page.name}
                     onClick={handleCloseNavMenu}
-                    sx={{ my: 2, mx: 2, color: "white", display: "block", letterSpacing: 4, fontWeight: 'bold' }}
+                    sx={{ my: 2, mx: 2, color: "black", display: "block", fontWeight: 'bold' }}
                   >
                     {page.name}
                   </Button>
@@ -137,7 +138,7 @@ function Header() {
             })}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0, zIndex: 100 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />

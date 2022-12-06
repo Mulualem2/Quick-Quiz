@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #fff;
+}
+
+nav {
+    background-color: rebeccapurple;
+    padding: 20px 200px;
+}
+
+.container {
+    background-color: #fff;
+    width: 100%;
+    height: 100vh;
+    padding: 20px 200px;
+}
+
+.container::after {
+    content: "";
+    position: absolute;
+    top: -200px;
+    left: 700px;
+    width: 200%;
+    height: 200%;
+    border-radius: 50%;
+    background-color: rgba(11, 11, 66, 0.1);
+    z-index: 0;
+}
+
+.big-slogan {
+    font-size: 80px;
+    max-width: 700px;
+    color: #320C4E;
+}
+
+.yellow-dash {
+    display: inline-block;
+    height: 10px;
+    width: 150px;
+    background-color: #FFDC00;
+    margin-top: 25px;
+}
+
+.what-to-do {
+    display: inline-block;
+    margin-left: 30px;
+    font-size: 30px;
+    color: #740BC1;
+}
+
+.short-description-paragraph {
+    width: 45%;
+    max-width: 400px;
+    margin-top: 25px;
+}
+
+.description-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.try-it-btn {
+    padding: 12px 25px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 8px;
+    background-color: #740BC1;
+    display: inline;
+    max-width: 100px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.try-it-btn:hover{
+    cursor: pointer;
+}
+
+.question-box {
+    position: absolute;
+    top: 130px;
+    left: 500px;
+    width: 500px;
+    height: 350px;
+    border-radius: 30px;
+    background-color: red;
+    padding: 30px 40px;
+    border: 2px solid #2B3377;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.question-category {
+    margin-bottom: 10px;
+    color: #6C71A1;
+}
+
+.question-text {
+    margin-bottom: 15px;
+    color: #2B3377;
+}
+
+.question-choice {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.question-choice-checkbox {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid #4B4AEF;
+    display: inline-block;
+    margin-left: 20px;
+    border-radius: 50%;
+}
+
+.question-chioce-text {
+    margin-left: 15px;
+}
+
+.selected-question-choice {
+    background-color: rgba(75, 74, 239, 0.2);
+    padding: 10px 0;
+    border-radius: 5px;
+}
