@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const userQuestionsSchema = new Schema({
-    pack_name: {
+    pack: {
         type: Schema.Types.ObjectId,
         ref: 'Question_Pack'
     },
