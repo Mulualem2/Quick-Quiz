@@ -37,9 +37,6 @@ const Footer = () => {
             </Typography>
           </Box>
           <Box flex={1}>
-            <Typography color={"white"} align={"center"}>
-              Categories
-            </Typography>
             <Typography color={"white"} variant={"body2"} align={"center"}>
               About Us
             </Typography>
